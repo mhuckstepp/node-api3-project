@@ -1,12 +1,11 @@
 const User = require("../users/users-model");
 
 function logger(req, res, next) {
-  console.log(`URL: ${req.url} Method: ${req.method}`, req.body, req.params.id);
+  console.log(`URL: ${req.url} Method: ${req.method}`, req.body);
   next();
 }
 
 function validateUserId(req, res, next) {
-  console.log("validateid", req.params.id);
   User.getById(req.params.id)
     .then((user) => {
       if (user) {
@@ -23,6 +22,10 @@ function validateUserId(req, res, next) {
 
 function validateUser(req, res, next) {
   const validUser = req.body;
+
+  console.log(req.body);
+  console.log(Object.keys(req.body).length);
+  console.log(req.params.id);
   if (Object.keys(req.body).length) {
     if (!validUser.name) {
       res.status(400).json({ message: "missing required name field" });
