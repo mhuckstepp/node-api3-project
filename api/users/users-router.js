@@ -67,6 +67,8 @@ router.get("/:id/posts", validateUserId, (req, res, next) => {
 });
 
 router.post("/:id/posts", validateUserId, validatePost, (req, res, next) => {
+  req.body.user_id = req.params.id;
+  console.log(req.body);
   Post.insert(req.body)
     .then((post) => {
       res.status(200).json(post);

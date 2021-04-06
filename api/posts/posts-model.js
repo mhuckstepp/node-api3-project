@@ -13,8 +13,7 @@ function get() {
 }
 
 function getById(id) {
-  return db("posts").where({ id });
-  // .first();
+  return db("posts").where({ id }).first();
 }
 
 function insert(post) {
