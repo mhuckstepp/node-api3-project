@@ -1,3 +1,6 @@
 // require your server and launch it
+const server = require("./api/server");
 
-// change
+server.listen(4000, () => {
+  console.log("listening on localhost:4000");
+});
