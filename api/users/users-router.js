@@ -57,7 +57,7 @@ router.delete("/:id", validateUserId, (req, res, next) => {
 });
 
 router.get("/:id/posts", validateUserId, (req, res, next) => {
-  Post.getById(req.params.id)
+  Post.getByUserId(req.params.id)
     .then((posts) => {
       res.status(200).json(posts);
     })

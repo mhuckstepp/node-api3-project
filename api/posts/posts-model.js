@@ -6,6 +6,7 @@ module.exports = {
   insert,
   update,
   remove,
+  getByUserId,
 };
 
 function get() {
@@ -14,6 +15,10 @@ function get() {
 
 function getById(id) {
   return db("posts").where({ id }).first();
+}
+
+function getByUserId(user_id) {
+  return db("posts").where({ user_id });
 }
 
 function insert(post) {
