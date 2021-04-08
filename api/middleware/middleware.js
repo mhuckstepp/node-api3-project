@@ -22,10 +22,6 @@ function validateUserId(req, res, next) {
 
 function validateUser(req, res, next) {
   const validUser = req.body;
-
-  console.log(req.body);
-  console.log(Object.keys(req.body).length);
-  console.log(req.params.id);
   if (Object.keys(req.body).length) {
     if (!validUser.name) {
       res.status(400).json({ message: "missing required name field" });
